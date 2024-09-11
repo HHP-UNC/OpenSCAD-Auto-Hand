@@ -1,6 +1,6 @@
 // Parameters
 // Forearm Width 1 (mm)
-$fn = 64;
+$fn = 100;
 
 width1 = 129.15; //[45:175]
 
