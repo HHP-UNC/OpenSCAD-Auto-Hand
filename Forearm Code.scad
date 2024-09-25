@@ -105,27 +105,27 @@ cylinder(circExtrude*3,5.35/2,5.35/2);}
  ; 
 //Need to still figure out exact location of these circle ports in relation to rest of body
 
-
+//Right port
 difference()
  {
 linear_extrude(height=circExtrude)   
-translate([(width1-width2)/2+width2,7+length1]) 
+translate([(width1-width2)/2.5+width2,8+length1]) 
 circle(radius); 
-translate([(width1-width2)/2+width2,7+length1]){
+translate([(width1-width2)/2.5+width2,8+length1]){
 cube([squareRad,squareRad,3*circExtrude],true);
     }
     
 
     
  }
- 
+ //Left Port
  difference()
  {
 linear_extrude(height=circExtrude)  
-translate([(width1-width2)/2,7+length1])
+translate([(width1-width2)/1.5,8+length1])
 circle(radius);
 
-translate([(width1-width2)/2,7+length1]){
+translate([(width1-width2)/1.5,8+length1]){
 cube([squareRad,squareRad,3*circExtrude],true);
     }
     
