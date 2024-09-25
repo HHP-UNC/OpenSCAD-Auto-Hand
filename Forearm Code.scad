@@ -102,7 +102,7 @@ cylinder(circExtrude*3,5.35/2,5.35/2);}
     scale([1,.5]) sphere(30.58, center = true);
 
  }
- ;
+ ; 
 //Need to still figure out exact location of these circle ports in relation to rest of body
 
 
