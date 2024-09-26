@@ -132,5 +132,3 @@ cube([squareRad,squareRad,3*circExtrude],true);
     
 }
 ;
-
-
