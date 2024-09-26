@@ -39,6 +39,12 @@ difference()
 difference()
 difference()
 difference()
+difference()
+difference()
+difference()
+{
+{
+{
 {
 {
 {
@@ -80,6 +86,15 @@ cube([5.35,27.03,3*circExtrude],true);}
 translate([0.07742934572*width1+3.13,0.1692620176*length1+12.1])
 cylinder(circExtrude*3,5.35/2,5.35/2);}
 
+translate([0.07742934572*width1+107.21,0.1692620176*length1+14.7])
+cylinder(circExtrude*3,5.35/2,5.35/2);}
+
+translate([0.07742934572*width1+109.8,0.1692620176*length1-12])
+cylinder(circExtrude*3,5.35/2,5.35/2);}  
+
+translate([0.07742934572*width1+.61,0.1692620176*length1-14.1])
+cylinder(circExtrude*3,5.35/2,5.35/2);}  
+
 // Not correct, needs to be corrected
  
  //cutout for the groove 
@@ -87,7 +102,7 @@ cylinder(circExtrude*3,5.35/2,5.35/2);}
     scale([1,.5]) sphere(30.58, center = true);
 
  }
- ;
+ ; 
 //Need to still figure out exact location of these circle ports in relation to rest of body
 
 //Right port
@@ -116,5 +131,3 @@ cube([squareRad,squareRad,3*circExtrude],true);
     
 }
 ;
-
-
