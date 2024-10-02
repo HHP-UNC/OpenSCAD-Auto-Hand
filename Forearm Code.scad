@@ -43,6 +43,14 @@ difference()
 difference()
 difference()
 difference()
+difference()
+difference()
+difference()
+difference()
+{
+{
+{
+{
 {
 {
 {
@@ -68,6 +76,7 @@ hull() {
  // Instead of putting coordinates, I used the coordinates already in place and divided the coordinate value by the respective dimension (width1 for x values, length1 for y values), and multiplied this ratio by the respective dimension so the location of the rectangle will scale properly. (the only problem is that the locations only scale w/ respect to width1 and not width2)
  
  // Right now, the rectangular ports are slightly offset with one higher than the other. We're trying to make it symmetrical but can't figure it out. That is the next step. 
+
   rotate(5.5)
  translate([0.92915214866*width1,0.59241706161*length1]){
 cube([5.35,27.03,3*circExtrude],true);}
@@ -96,7 +105,20 @@ cylinder(circExtrude*3,5.35/2,5.35/2);}
 translate([0.07742934572*width1+.61,0.1692620176*length1-14.1])
 cylinder(circExtrude*3,5.35/2,5.35/2);}  
 
+translate([0.07742934572*width1+6.31,0.1692620176*length1+45.1])
+cylinder(circExtrude*3,5.35/2,5.35/2);}  
+
+translate([0.07742934572*width1+8.9,0.1692620176*length1+72.1])
+cylinder(circExtrude*3,5.35/2,5.35/2);} 
+
+translate([0.07742934572*width1+104.05,0.1692620176*length1+47.6])
+cylinder(circExtrude*3,5.35/2,5.35/2);}  
+
+translate([0.07742934572*width1+101.4,0.1692620176*length1+74.92])
+cylinder(circExtrude*3,5.35/2,5.35/2);} 
 // Not correct, needs to be corrected
+ 
+// Above is the code for the circular arcs for the four side ports - need to make this scalable
  
  //cutout for the groove 
     translate([width1/2,7+length1])
@@ -115,9 +137,6 @@ circle(radius);
 translate([(width1-width2)/2.5+width2,8+length1]){
 cube([squareRad,squareRad,3*circExtrude],true);
     }
-    
-
-    
  }
  //Left Port
  difference()
