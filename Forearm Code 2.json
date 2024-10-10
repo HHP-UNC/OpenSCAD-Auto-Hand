@@ -1,0 +1,17 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "New set 1": {
+            "$fn": "64",
+            "diameter": "5",
+            "heightSmall": "1.04",
+            "length1": "118.16000000000001",
+            "origin": "0",
+            "radius": "8.3200000000000003",
+            "squareRad": "6.8600000000000003",
+            "width1": "129.15000000000001",
+            "width2": "103.89000000000001",
+            "yShift": "7"
+        }
+    }
+}
