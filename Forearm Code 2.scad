@@ -127,3 +127,15 @@ cube([squareRad,squareRad,3*circExtrude],true);
     
 }
 ;
+
+topPortWidth = 13.54;
+topPortLength = 36.43;
+topPortHeight = 5.02;
+
+topPortX = (width1-topPortWidth)/2;
+topPortY = (length1-topPortLength)/2;
+
+translate([topPortX,topPortY,heightSmall]){
+cube([topPortWidth,topPortLength,topPortHeight]);
+
+}
