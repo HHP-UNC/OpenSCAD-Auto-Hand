@@ -37,6 +37,7 @@ circExtrude = heightSmall*5.07692307692;
 //for i = []
 
 difference() {
+
     // Main shape
     linear_extrude(height=heightSmall) {
         hull() { 
@@ -51,7 +52,10 @@ difference() {
                 [(width1 - width2) / 2, length1]
             ]); 
         }
+
     }
+    
+    
 
     // Arrays for cube positions and rotations
     rotations = [5.5, -5.5, 5.5, -5.5];
@@ -94,7 +98,7 @@ difference() {
 
     // Subtracting the scaled sphere to create a cutout
     translate([width1 / 2, 7 + length1]) {
-        scale([1, 0.5, 1]) { // Scaling in x, y, z directions
+        scale([1.35, .9, 1]) { // Scaling in x, y, z directions
             sphere(r = 30.58, center = true);
         }
     }
@@ -108,9 +112,9 @@ difference() {
 difference()
  {
 linear_extrude(height=circExtrude)   
-translate([(width1-width2)/2.5+width2,8+length1]) 
+translate([(width1-width2)/3.5+width2,length1-3]) 
 circle(radius); 
-translate([(width1-width2)/2.5+width2,8+length1]){
+translate([(width1-width2)/3.5+width2,length1-3]){
 cube([squareRad,squareRad,3*circExtrude],true);
     }
  }
@@ -118,10 +122,9 @@ cube([squareRad,squareRad,3*circExtrude],true);
  difference()
  {
 linear_extrude(height=circExtrude)  
-translate([(width1-width2)/1.5,8+length1])
+translate([(width1-width2)/1.4,length1-3])
 circle(radius);
-
-translate([(width1-width2)/1.5,8+length1]){
+translate([(width1-width2)/1.4,length1-3]){
 cube([squareRad,squareRad,3*circExtrude],true);
     }
     
