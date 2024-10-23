@@ -14,12 +14,10 @@ length1 = 118.16; //[35:165]
 origin = 0;
 
 // Forearm Height (smallest) (mm)
-heightSmall = 2.52; //[.75:1.25]
-
+heightSmall = 1.04; //[.75:1.25]
  
 // Diameter fillet (mm)
 diameter = 5; //[3:7]
-
 
 
 
@@ -32,12 +30,11 @@ squareRad = 6.86; //[3:10]
 
 //linear extrude of circle ports (mm)
 //trying to put the variable in terms of height of the base of the trapezoid
-circExtrude = heightSmall*2.0952381;
+circExtrude = heightSmall*5.07692307692;
 
-
-//
-
-
+//ong_groove_x = [0.92915214866*width1, 0.07742934572*width1, ]
+//long_groove_y = []
+//for i = []
 
 // Fillet edges
 difference()
@@ -156,15 +153,3 @@ cube([squareRad,squareRad,3*circExtrude],true);
     
 }
 ;
-
-topPortWidth = 13.54;
-topPortLength = 36.43;
-topPortHeight = 5.02;
-
-topPortX = (width1-topPortWidth)/2;
-topPortY = (length1-topPortLength)/2;
-
-translate([topPortX,topPortY,heightSmall]){
-cube([topPortWidth,topPortLength,topPortHeight]);
-
-}
