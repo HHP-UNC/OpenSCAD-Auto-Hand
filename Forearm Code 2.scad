@@ -37,7 +37,8 @@ circExtrude = heightSmall*5.07692307692;
 //for i = []
 
 difference() {
-
+difference() {
+difference() {
     // Main shape
     linear_extrude(height=heightSmall) {
         hull() { 
@@ -103,8 +104,20 @@ difference() {
         }
     }
 }
-
- 
+linear_extrude(height=circExtrude)   
+translate([(width1-width2)/3.5+width2,length1-3]) 
+circle(radius); 
+translate([(width1-width2)/3.5+width2,length1-3]){
+cube([squareRad,squareRad,3*circExtrude],true);
+}
+linear_extrude(height=circExtrude)  
+translate([(width1-width2)/1.4,length1-3])
+circle(radius);
+translate([(width1-width2)/1.4,length1-3]){
+cube([squareRad,squareRad,3*circExtrude],true);
+    }
+}
+}
  ; 
 //Need to still figure out exact location of these circle ports in relation to rest of body
 
