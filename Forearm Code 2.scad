@@ -39,6 +39,7 @@ circExtrude = heightSmall*5.07692307692;
 difference() {
 difference() {
 difference() {
+difference() {
     // Main shape
     linear_extrude(height=heightSmall) {
         hull() { 
@@ -98,23 +99,30 @@ difference() {
     }
 
     // Subtracting the scaled sphere to create a cutout
-    translate([width1 / 2, 7 + length1]) {
-        scale([1.35, .9, 1]) { // Scaling in x, y, z directions
-            sphere(r = 30.58, center = true);
+    translate([width1 / 2, -10 + length1]) {
+        scale([1.95, .9, 1]) { // Scaling in x, y, z directions
+            sphere(r = 19.8, center = true);
         }
     }
 }
 linear_extrude(height=circExtrude)   
-translate([(width1-width2)/3.5+width2,length1-3]) 
+translate([(width1-width2)/3.5+width2,length1]) 
 circle(radius); 
-translate([(width1-width2)/3.5+width2,length1-3]){
+translate([(width1-width2)/3.5+width2,length1]){
 cube([squareRad,squareRad,3*circExtrude],true);
 }
 linear_extrude(height=circExtrude)  
-translate([(width1-width2)/1.4,length1-3])
+translate([(width1-width2)/1.4,length1])
 circle(radius);
-translate([(width1-width2)/1.4,length1-3]){
+translate([(width1-width2)/1.4,length1]){
 cube([squareRad,squareRad,3*circExtrude],true);
+    }
+}
+linear_extrude(height=circExtrude)  
+translate([width1-63,length1-2])
+cube([50,20,3*circExtrude],true);
+translate([width1-64.5,length1-2]){
+cube([(length1/1.53),20,3*circExtrude],true);
     }
 }
 }
@@ -125,9 +133,9 @@ cube([squareRad,squareRad,3*circExtrude],true);
 difference()
  {
 linear_extrude(height=circExtrude)   
-translate([(width1-width2)/3.5+width2,length1-3]) 
+translate([(width1-width2)/3.5+width2,length1]) 
 circle(radius); 
-translate([(width1-width2)/3.5+width2,length1-3]){
+translate([(width1-width2)/3.5+width2,length1]){
 cube([squareRad,squareRad,3*circExtrude],true);
     }
  }
@@ -135,9 +143,9 @@ cube([squareRad,squareRad,3*circExtrude],true);
  difference()
  {
 linear_extrude(height=circExtrude)  
-translate([(width1-width2)/1.4,length1-3])
+translate([(width1-width2)/1.4,length1])
 circle(radius);
-translate([(width1-width2)/1.4,length1-3]){
+translate([(width1-width2)/1.4,length1]){
 cube([squareRad,squareRad,3*circExtrude],true);
     }
     
