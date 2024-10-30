@@ -99,11 +99,9 @@ difference() {
     }
 
     // Subtracting the scaled sphere to create a cutout
-<<<<<<< HEAD
+
     translate([width1 / 2 +.05, -12 + length1]) {
-=======
-    translate([width1 / 2, -10 + length1]) {
->>>>>>> 548a4ef347b9832e9d95d86ef92a49acc31a0e51
+
         scale([1.95, .5, 1]) { // Scaling in x, y, z directions
             sphere(r = 19.8, center = true);
         }
