@@ -99,18 +99,20 @@ difference() {
     }
 
     // Subtracting the scaled sphere to create a cutout
-    translate([width1 / 2, -10 + length1]) {
-        scale([1.95, .9, 1]) { // Scaling in x, y, z directions
+    translate([width1 / 2 +.05, -12 + length1]) {
+        scale([1.95, .5, 1]) { // Scaling in x, y, z directions
             sphere(r = 19.8, center = true);
         }
     }
 }
+// Port Hole Correction 
 linear_extrude(height=circExtrude)   
 translate([(width1-width2)/3.5+width2,length1]) 
 circle(radius); 
 translate([(width1-width2)/3.5+width2,length1]){
 cube([squareRad,squareRad,3*circExtrude],true);
 }
+// Port Hole Correction 
 linear_extrude(height=circExtrude)  
 translate([(width1-width2)/1.4,length1])
 circle(radius);
@@ -118,6 +120,7 @@ translate([(width1-width2)/1.4,length1]){
 cube([squareRad,squareRad,3*circExtrude],true);
     }
 }
+// Rectangle segment cutout
 linear_extrude(height=circExtrude)  
 translate([width1-63,length1-2])
 cube([50,20,3*circExtrude],true);
