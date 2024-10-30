@@ -168,3 +168,19 @@ translate([topPortX,topPortY,heightSmall]){
 cube([topPortWidth,topPortLength,topPortHeight]);
 
 }
+
+b = 10;
+h = 10;
+w = 4;
+
+//Start with an extruded triangle
+
+translate([topPortX+topPortWidth/2,topPortY,heightSmall]){
+rotate(a=[180,-90,0])
+linear_extrude(height = topPortWidth, center = true, convexity = 10, twist = 0)
+polygon(points=[[0,0],[topPortHeight,0],[0,b]], paths=[[0,1,2]]);
+
+}
+
+
+
