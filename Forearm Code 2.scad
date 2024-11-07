@@ -15,6 +15,10 @@ origin = 0;
 
 // Forearm Height (smallest) (mm)
 heightSmall = 1.04; //[.75:1.25]
+
+// Forearm Height (main) = 2.52 mm
+heightMain = heightSmall*1.04;
+
  
 // Diameter fillet (mm)
 diameter = 5; //[3:7]
@@ -32,16 +36,13 @@ squareRad = 6.86; //[3:10]
 //trying to put the variable in terms of height of the base of the trapezoid
 circExtrude = heightSmall*5.07692307692;
 
-//ong_groove_x = [0.92915214866*width1, 0.07742934572*width1, ]
-//long_groove_y = []
-//for i = []
 
 difference() {
 difference() {
 difference() {
 difference() {
     // Main shape
-    linear_extrude(height=heightSmall) {
+    linear_extrude(height=heightMain) {
         hull() { 
             translate([origin, origin]) circle(d=diameter);
             translate([width1, origin]) circle(d=diameter);
@@ -182,5 +183,15 @@ polygon(points=[[0,0],[topPortHeight,0],[0,b]], paths=[[0,1,2]]);
 
 }
 
+// Adding slight raised parts over oval cutouts
+rotations_2 = [-5.5, 5.5];
+x_positions_2 = [0, width1 - 17]; 
+y_positions_2 = [0, -12]; 
 
-
+for (i = [0 : len(rotations_2) - 1]) {
+    rotate(rotations_2[i]) { 
+        translate([x_positions_2[i], y_positions_2[i]]) {
+            cube([15.55, 84.64, heightMain + 1.28], center = false); 
+        }
+    }
+}
