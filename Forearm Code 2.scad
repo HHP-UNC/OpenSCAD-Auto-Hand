@@ -194,4 +194,30 @@ for (i = [0 : len(rotations_2) - 1]) {
             cube([15.55, 84.64, heightMain + 1.28], center = false); 
         }
     }
+    
+    
 }
+
+
+
+// outline code for the ports
+
+module gauntletPegHole() {
+    difference() {
+        union() {
+            linear_extrude(height=3, center=false, scale=0.75) {
+                circle(d=18.65);
+            }
+            translate([0, 0, 0]) {
+                cube([10, 10, 10], center=true);
+            }
+            translate([0, 0, 0]) {
+                cylinder(h=10, r=5);
+            }
+        }
+        cube([20, 20, 20]);
+    }
+}
+
+translate([0, 0, 0]) gauntletPegHole();
+translate([30, 0, 0]) gauntletPegHole();
