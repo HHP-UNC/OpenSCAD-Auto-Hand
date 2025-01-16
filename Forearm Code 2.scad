@@ -167,6 +167,10 @@ topPortY = (length1-topPortLength)/2;
 translate([topPortX,topPortY,heightSmall]){
 cube([topPortWidth,topPortLength,topPortHeight]);
 
+translate([topPortX/8-.5,topPortY-7,0]){
+cylinder(topPortHeight,topPortWidth/2+.3,topPortWidth/2+.3);
+}
+
 }
 
 b = 10;
