@@ -2,3 +2,4 @@
   - location of points defining the polygon shape
   - mirror between rotated oval cutouts on each side of the main shape
   - gauntlet peg hole location
+  - parameterize the circular cutout at the top of the main shape
