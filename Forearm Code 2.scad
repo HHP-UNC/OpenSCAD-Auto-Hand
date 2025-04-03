@@ -38,6 +38,23 @@ circDiam = 18.65; //[15:20]
 //trying to put the variable in terms of height of the base of the trapezoid
 circExtrude = heightSmall*5.07692307692;
 
+module fourCorners() {  // the 4 corners of the main plate of the forearm (before the two ports on top)
+    
+    dist_from_y_axis = 48.12;   // distance of top left and right corners of polygon from y-axis
+    
+    dist_from_x_axis = 93.48;    // distance of top left and right corners of polygon from x-axis
+    
+    hull() {
+    
+        translate([-width1/2, origin+diameter/2]) circle(d=diameter);
+                                translate([width1/2, origin+diameter/2]) circle(d=diameter);
+                                translate([dist_from_y_axis, dist_from_x_axis]) circle(d=diameter);
+                                // translate([-48.12, 93.48]) circle(d=diameter);   // coordinates we had last time
+                                translate([-dist_from_y_axis, dist_from_x_axis]) circle(d=diameter);      // coordinates I calculated
+    }
+    
+}
+
 module mainShape(){
 difference() {
 difference() {
