@@ -17,7 +17,13 @@ origin = 0;
 heightSmall = 1.04; //[.75:1.25]
 
 // Forearm Height (main) = 2.52 mm
-heightMain = heightSmall*1.04;
+heightMain = heightSmall*2.4231;
+
+// SidePort Height
+heightSidePort = 3.653846 * heightSmall;
+
+// PegPortHeight
+pegPortHeight = 5.077 * heightSmall;
 
  
 // Diameter fillet (mm)
@@ -38,23 +44,76 @@ circDiam = 18.65; //[15:20]
 //trying to put the variable in terms of height of the base of the trapezoid
 circExtrude = heightSmall*5.07692307692;
 
+// height of main quadrilateral
+quadrilateralHeight = 3.80;
+
+// peg-hole larger circle
+pegHoleLargerCircleDiameter = 21.65;
+
+// peg-hole smaller circle
+pegHoleSmallerCircleDiameter = 18.65;
+
+// distance between peg-hole large circle and small circle
+pegHoleDistanceBetweenCircles = 5.28;
+
+// height of connecting rectangle between main quadrilateral and pegHole
+
+
+
+
 module fourCorners() {  // the 4 corners of the main plate of the forearm (before the two ports on top)
+    
+    fourCornersDiameter = 5;
+    translate_amount = (fourCornersDiameter / 2) / sqrt(2);
     
     dist_from_y_axis = 48.12;   // distance of top left and right corners of polygon from y-axis
     
     dist_from_x_axis = 93.48;    // distance of top left and right corners of polygon from x-axis
     
-    hull() {
+    linear_extrude(height = quadrilateralHeight) {
     
-        translate([-width1/2, origin+diameter/2]) circle(d=diameter);
-                                translate([width1/2, origin+diameter/2]) circle(d=diameter);
-                                translate([dist_from_y_axis, dist_from_x_axis]) circle(d=diameter);
-                                // translate([-48.12, 93.48]) circle(d=diameter);   // coordinates we had last time
-                                translate([-dist_from_y_axis, dist_from_x_axis]) circle(d=diameter);      // coordinates I calculated
+        hull() {
+            // bottom left
+            translate([-width1/2 + translate_amount, origin + translate_amount]) circle(d=fourCornersDiameter, center = true);
+            // bottom right
+            translate([width1/2 - translate_amount, origin + translate_amount]) circle(d=fourCornersDiameter, center = true);
+            // top left
+            translate([-dist_from_y_axis + translate_amount, dist_from_x_axis - translate_amount]) circle(d=fourCornersDiameter, center = true);    
+            // top right
+            translate([dist_from_y_axis - translate_amount, dist_from_x_axis - translate_amount]) circle(d=fourCornersDiameter, center = true);
+        }  
     }
     
 }
 
+module circleSquare(){
+    
+    /*
+    hull() {
+        // larger circle
+        circle(d = pegHoleLargerCircleDiameter, center = true);
+
+        // smaller circle
+        translate([0, 0, pegHoleDistanceBetweenCircles]) circle(d = pegHoleSmallerCircleDiameter, center = true);
+    } */
+    
+    // larger and smaller circles of pegHole hulled together
+    translate([0, 0, heightMain + ((pegPortHeight - heightMain) / 2) ]) cylinder(h = pegPortHeight - heightMain,
+             d1 = pegHoleLargerCircleDiameter,
+             d2 = pegHoleSmallerCircleDiameter,
+             center = true);
+    
+    
+    /*
+    hull(){
+        color("blue") translate([x_coord,100,30]) square([18.65,18.65], center = true);
+
+        translate([x_coord, 108.835,30]) circle(d=18.65, center = true);
+    } 
+    */
+}
+
+/*
 module mainShape(){
 difference() {
 difference() {
@@ -262,6 +321,11 @@ mirror([0,1,0]) { translate([-41.12, length1-circDiam/2]) gauntletPegHole();}
 }
 
 
+
 // Rendering modules
 translate([-width1/2,0,0]) mainShape();
 //gauntletPegHole();
+*/
+
+fourCorners();
+color("red") circleSquare();
